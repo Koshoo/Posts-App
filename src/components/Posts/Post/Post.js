@@ -27,8 +27,9 @@ const Post = ({ post, setCurrentId }) => {
 
   const handleDelete = () => {
     setCurrentId(0);
-    //TODO - Clear form
-    dispatch(deletePost(post.id, user.token));
+    if (window.confirm(`Are you sure you want to delete this post?`)) {
+      dispatch(deletePost(post.id, user.token));
+    }
   };
 
   useEffect(() => {
